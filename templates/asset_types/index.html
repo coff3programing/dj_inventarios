@@ -1,0 +1,37 @@
+{% extends "../partials/base.html" %}
+{% block content %}
+  <h1 class="text-center text-danger">Listar los Tipos de Equipos</h1>
+  <a href="{% url 'tipocr' %}" class="btn btn-dark rounded-pill w-25" role="button">Agregar nuevos Tipos de Equipos +</a>
+<br><br><br><br>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for el in marcas %}
+    <div class="col">
+    <div class="card bg-dark">
+      <div class="card-body">
+        <h5 class="card-title text-white text-center"><sup class="text-secondary">{{el.id}}</sup> {{el.nombre_tipo}}</h5>
+        <div class="flex justify-between">
+          
+            <a
+            class="btn btn-secondary"
+            href={% url "edittip" el.id %}
+            role="button"
+            >Editar</a
+            >
+            
+            | 
+            <a
+            class="btn btn-danger"
+            href="{% url 'eleq' el.id %}"
+            onclick="return confirm('Estas seguro de eliminar el laboratorio {{el.id}}')"
+            role="button"
+            >Eliminar</a
+            >
+        </div>
+      </div>
+    </div>
+  </div>
+          {% endfor %}
+  </div>
+  
+{% endblock content %}

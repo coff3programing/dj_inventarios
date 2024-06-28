@@ -1,0 +1,32 @@
+{% include "./partials/base.html" %}
+
+
+{% block content %}
+<div class="">
+  
+  <img src="https://i.blogs.es/4ee3bc/1/1366_2000.jpg" alt="Img" class="w-full"></imd>
+  <h2 class="text-2xl text-center text-tomato">Ver por</h2>
+  <div class="row row-cols-1 row-cols-md-2 g-4" id="filtros">
+  <div class="col">
+    <div class="card bg-black">
+      <div class="text-center"></div>
+      <img src="/static/img/list.svg"  class="card-img-top incon_width" alt="...">
+      <div class="card-body">
+        <a href={% url "nuevos" %} class="nav nav-item .
+        text-white text-2xl">
+            Activos Nuevos
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card bg-black">
+      <img src="/static/img/list.svg"  class="card-img-top incon_width" alt="...">
+      <div class="card-body">
+        <a href={% url "viejos" %} class="card-title text-white text-center text-2xl">Activos Viejos</a>
+      </div>
+    </div>
+  </div>
+  <div class="mt-8"></div>
+</div>
+{% endblock content %}

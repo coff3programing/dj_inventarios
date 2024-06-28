@@ -1,0 +1,37 @@
+
+{% include "../partials/base.html" %}
+
+
+{% block content %}
+<div class="text-end">
+
+  <input type="search" name="" id="" placeholder="Buscar Código" class="max-w-96 bg-slate-400 p-2 rounded-full">
+</div>
+
+  <div class="row row-cols-1 mt-4 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card bg-dark">
+      {% for el in items %}
+      <div class="card-body">
+        <h5 class="card-title text-center text-white">
+            <b class="text-tomato text-white">Código: </b>
+            {{ el.codigo_activo }}
+        </h5>
+        <div class="card-text text-white text-center">
+          <p>{{el.laboratorio}}</p>
+          <p>{{el.tipo}}</p>
+          <p>{{el.marca}}</p>
+          <p>{{el.estado_uso}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+  {% endblock content %}
+
+<style>
+  input[type="search"] {
+    border: thin solid gray;
+  }
+</style>

@@ -1,0 +1,48 @@
+{% extends "../partials/base.html" %}
+{% block content %}
+  <h1 class="text-center text-danger">Listar Activos</h1>
+  <form method="POST">
+  <a href="{% url 'activos_create' %}" class="btn btn-dark rounded-pill w-25" role="button">Agregar Activos +</a>
+
+  </form>
+<br><br><br><br>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for el in equipos %}
+    <div class="col">
+    <div class="card bg-dark">
+      <img src="{{el.imagen.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-white text-center"><sup class="text-secondary">{{el.id}}</sup> {{el.codigo_activo}}</h5>
+        <p>
+          <b>Laboratorio:</b> {{el.laboratorio}}<br>
+          <b>Tipo:</b> {{el.tipo}}<br>
+          <b>Marca:</b> {{el.marca}}<br>
+          <b>Estado:</b> {{el.estado}}<br>
+          <b>Observaciones:</b> {{el.observaciones}}<br>
+        </p>
+        <div class="flex justify-between">
+          
+            <a
+            class="btn btn-secondary"
+            href={% url "editlab" el.id %}
+            role="button"
+            >Editar</a
+            >
+            
+            | 
+            <a
+            class="btn btn-danger"
+            href="{% url 'elab' el.id %}"
+            onclick="return confirm('Estas seguro de eliminar el laboratorio {{el.id}}')"
+            role="button"
+            >Eliminar</a
+            >
+        </div>
+      </div>
+    </div>
+  </div>
+          {% endfor %}
+  </div>
+  
+{% endblock content %}

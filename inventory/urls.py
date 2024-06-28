@@ -1,0 +1,42 @@
+from django.urls import path
+from .views import (
+    index,
+    registros,
+    viejos,
+    nuevos,
+    crearlaboratorios,
+    get_laboratorios,
+    editarlaboratorio,
+    eliminarLaboratorio,
+    get_marcas,
+    crearmarcas,
+    editarmarcas,
+    eliminarmarcas,
+    get_tipoequipos,
+    crear_tipoequipos,
+    editar_tipoequipos,
+    eliminarequipo,
+    activos_list,
+    activos_create,
+    activos_update,
+    activos_delete
+)
+
+urlpatterns = [
+    path('', index, name='index'),
+    path('registros/', registros, name='registros'),
+    path('viejos/', viejos, name='viejos'),
+    path('nuevos/', nuevos, name='nuevos'),
+    path('laboratorios/', get_laboratorios, name='laboratorios'),
+    path('laboratorios/crear', crearlaboratorios, name='labcr'),
+    path("laboratorios/editar/<int:id>", editarlaboratorio, name="editlab"),
+    path("laboratorios/eliminar/<int:id>", eliminarLaboratorio, name="elab"),
+    path('marcas/', get_marcas, name='marcas'),
+    path('marcas/crear', crearmarcas, name='marcr'),
+    path("marcas/editar/<int:id>", editarmarcas, name="editmar"),
+    path("marcas/eliminar/<int:id>", eliminarmarcas, name="elmar"),
+    path('tipoequipos/', get_tipoequipos, name='tipoequipos'),
+    path('tipoequipos/crear', crear_tipoequipos, name='tipocr'),
+    path("tipoequipos/editar/<int:id>", editar_tipoequipos, name="edittip"),
+    path("tipoequipos/eliminar/<int:id>", eliminarequipo, name="eleq"),
+]

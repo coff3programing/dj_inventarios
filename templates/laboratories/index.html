@@ -1,0 +1,37 @@
+{% extends "../partials/base.html" %}
+{% block content %}
+  <h1 class="text-center text-danger">Listar Laboratorio</h1>
+  <a href="{% url 'labcr' %}" class="btn btn-dark rounded-pill w-25" role="button">Agregar nuevo laboratorio +</a>
+<br><br><br><br>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for el in laboratorios %}
+    <div class="col">
+    <div class="card bg-dark">
+      <div class="card-body">
+        <h5 class="card-title text-white text-center"><sup class="text-secondary">{{el.id}}</sup> {{el.nombre_laboratorio}}</h5>
+        <div class="flex justify-between">
+          
+            <a
+            class="btn btn-secondary"
+            href={% url "editlab" el.id %}
+            role="button"
+            >Editar</a
+            >
+            
+            | 
+            <a
+            class="btn btn-danger"
+            href="{% url 'elab' el.id %}"
+            onclick="return confirm('Estas seguro de eliminar el laboratorio {{el.id}}')"
+            role="button"
+            >Eliminar</a
+            >
+        </div>
+      </div>
+    </div>
+  </div>
+          {% endfor %}
+  </div>
+  
+{% endblock content %}

@@ -1,0 +1,26 @@
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% for campo in form %}
+  <div class="mb-3">
+    <label for="" class="form-label text-secondary">{{campo.label}}</label>
+    <input
+    type="{{campo.field.widget.input_type}}"
+    class="form-control rounded-pill"
+    name="{{campo.name}}"
+    id=""
+    placeholder="{{campo.label}}"
+    />
+  </div>
+  <div class="col-12 help-text">{{campo.errors}}</div>
+  {% endfor %}
+  <input type="submit" value="Enviar Registros" class="w-100 block rounded-pill btn btn-dark" value="{{campo.value | default:''}}">
+  <a
+    name=""
+    id=""
+    class="btn btn-primary w-100 block rounded-pill my-4"
+    href="{% url 'index' %}"
+    role="button"
+    >Cancelar</a
+  >
+  
+</form>

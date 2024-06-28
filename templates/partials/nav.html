@@ -1,0 +1,15 @@
+
+<nav class=" items-center flex justify-between text-white">
+  <div class="flex items-center">
+    <img src="/static/img/my_icon.svg" class="w-12 h-12" alt="Img">
+    <span class="text-3xl mx-2 text-tomato flex">TechStock</span>
+  </div>
+
+  <div class="flex space-x-4">
+    <a class="nav-link active" aria-current="page" href={% url "index" %}>Home</a>
+    <a class="nav-link" href={% url "registros" %}>Soy Admin</a>
+    
+    <a class="nav-link" href="#">Generate PDF</a>
+    <a class="nav-link" href="#">Logout</a>
+  </div>
+</nav>

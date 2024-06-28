@@ -1,0 +1,20 @@
+<body class="bg-rose-50 py-6">
+    <div class="max-w-lg mx-auto bg-white p-6 rounded shadow">
+        <h1 class="text-3xl mb-6 text-rose-600">{% if form.instance.pk %}Editar{% else %}Crear{% endif %} Activo</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for campo in form %}
+            <div class="mb-6">
+                <label for="{{ campo.id_for_label }}" class="block text-sm font-medium text-gray-800 mb-2">{{ campo.label }}</label>
+                {{ campo }}
+                <div class="text-red-500 text-sm mt-1">{{ campo.errors }}</div>
+            </div>
+            {% endfor %}
+            <button type="submit" class="bg-rose-500 hover:bg-rose-600 text-white rounded-full px-4 py-2 w-full block mb-4">
+                {% if form.instance.pk %}Actualizar{% else %}Crear{% endif %} Activo
+            </button>
+            <a href="{% url 'activos_list' %}" class="bg-rose-200 hover:bg-rose-300 text-rose-800 rounded-full px-4 py-2 w-full block">
+                Cancelar
+            </a>
+        </form>
+    </div>

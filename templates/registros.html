@@ -1,0 +1,36 @@
+
+{% include "./partials/base.html" %}
+
+
+{% block content %}
+
+<nav class=" items-center flex justify-center mt-96 text-white">
+  <div class="flex items-center">
+    <img src="/static/img/my_icon.svg" class="w-12 h-12" alt="Img">
+    <span class="text-3xl mx-2 text-tomato flex">TechStock</span>
+  </div>
+</nav>
+<section class="text-center">
+  <br><br>
+  <a
+    class="btn btn-secondary rounded-pill my-4"
+    href={% url "laboratorios" %}
+    role="button"
+    >Laboratorios</a
+  >
+  <br>
+  <a
+    class="btn btn-secondary rounded-pill my-4"
+    href={% url "marcas" %}
+    role="button"
+    >Marcas</a
+  >
+  <br>
+  <a
+    class="btn btn-secondary rounded-pill my-4"
+    href={% url "tipoequipos" %}
+    role="button"
+    >Tipos de Activos</a
+  ><br>
+</section>
+{% endblock content %}
